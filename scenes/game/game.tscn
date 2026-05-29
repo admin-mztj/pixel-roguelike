@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene format=3 uid="uid://428x7qwtoi18"]
 
-[ext_resource type="Script" path="res://scripts/game/game_manager.gd" id="1_manager"]
+[ext_resource type="Script" uid="uid://cdnlwgeqq3ao8" path="res://scripts/game/game_manager.gd" id="1_manager"]
 [ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="2_player"]
 [ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="3_hud"]
 
@@ -8,57 +8,53 @@
 font_size = 36
 font_color = Color(1, 0.2, 0.2, 1)
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" unique_id=1903862864]
 script = ExtResource("1_manager")
 
-[node name="Walls" type="Node2D" parent="."]
+[node name="Walls" type="Node2D" parent="." unique_id=1425036761]
 
-[node name="PlayerSpawn" type="Marker2D" parent="."]
-position = Vector2(0, 0)
+[node name="PlayerSpawn" type="Marker2D" parent="." unique_id=2052919789]
 
-[node name="SpawnPoints" type="Node2D" parent="."]
+[node name="SpawnPoints" type="Node2D" parent="." unique_id=516429641]
 
-[node name="Spawn1" type="Marker2D" parent="SpawnPoints"]
+[node name="Spawn1" type="Marker2D" parent="SpawnPoints" unique_id=2009272673]
 position = Vector2(-300, -150)
 
-[node name="Spawn2" type="Marker2D" parent="SpawnPoints"]
+[node name="Spawn2" type="Marker2D" parent="SpawnPoints" unique_id=573137000]
 position = Vector2(300, -150)
 
-[node name="Spawn3" type="Marker2D" parent="SpawnPoints"]
+[node name="Spawn3" type="Marker2D" parent="SpawnPoints" unique_id=677112990]
 position = Vector2(-300, 150)
 
-[node name="Spawn4" type="Marker2D" parent="SpawnPoints"]
-position = Vector2(300, 150)
+[node name="Spawn4" type="Marker2D" parent="SpawnPoints" unique_id=980560669]
+position = Vector2(298, 150)
 
-[node name="Spawn5" type="Marker2D" parent="SpawnPoints"]
+[node name="Spawn5" type="Marker2D" parent="SpawnPoints" unique_id=1464374637]
 position = Vector2(0, -200)
 
-[node name="Spawn6" type="Marker2D" parent="SpawnPoints"]
+[node name="Spawn6" type="Marker2D" parent="SpawnPoints" unique_id=55070094]
 position = Vector2(0, 200)
 
-[node name="Player" parent="." instance=ExtResource("2_player")]
+[node name="Player" parent="." unique_id=858374659 instance=ExtResource("2_player")]
 
-[node name="HUD" parent="." instance=ExtResource("3_hud")]
+[node name="HUD" parent="." unique_id=1715739670 instance=ExtResource("3_hud")]
 
-[node name="GameOverUI" type="CanvasLayer" parent="."]
+[node name="GameOverUI" type="CanvasLayer" parent="." unique_id=205290440]
 
-[node name="Overlay" type="Control" parent="GameOverUI"]
-layout_mode = 0
-anchor_left = 0.0
-anchor_top = 0.0
+[node name="Overlay" type="Control" parent="GameOverUI" unique_id=592711046]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="Background" type="ColorRect" parent="GameOverUI/Overlay"]
+[node name="Background" type="ColorRect" parent="GameOverUI/Overlay" unique_id=614323649]
 layout_mode = 0
-anchor_left = 0.0
-anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color(0, 0, 0, 0.7)
 
-[node name="Label" type="Label" parent="GameOverUI/Overlay"]
+[node name="Label" type="Label" parent="GameOverUI/Overlay" unique_id=849879178]
 layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
@@ -68,7 +64,7 @@ offset_left = -150.0
 offset_top = -40.0
 offset_right = 150.0
 offset_bottom = 40.0
-horizontal_alignment = 1
-vertical_alignment = 1
 text = "GAME OVER"
 label_settings = SubResource("LabelSettings_gameover")
+horizontal_alignment = 1
+vertical_alignment = 1

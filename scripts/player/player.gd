@@ -197,12 +197,13 @@ func _on_hurt_invincibility_finished() -> void:
 
 
 func _die() -> void:
-	# Disable collision and input
+	# Disable collision, input, and attacks
 	collision_shape.set_deferred("disabled", true)
+	attack_area.monitoring = false
 	set_physics_process(false)
 	set_process_input(false)
 	sprite.modulate = Color(0.3, 0.3, 0.3, 0.6)
-	queue_free()
+	# Keep the player body and camera in place — do NOT queue_free()
 
 
 func _remove_attack_area_from_world() -> void:
