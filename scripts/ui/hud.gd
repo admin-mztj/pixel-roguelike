@@ -1,20 +1,38 @@
 extends CanvasLayer
 
-## HUD displaying player health bar.
+## HUD displaying player health bar, room name, and wave info.
 
 @onready var health_bar_bg: ColorRect = $HealthBar/Background
 @onready var health_bar_fill: ColorRect = $HealthBar/Fill
 @onready var health_label: Label = $HealthBar/HealthLabel
+@onready var room_label: Label = $RoomLabel
+@onready var wave_label: Label = $WaveLabel
 
 
 func _ready() -> void:
 	EventBus.player_health_changed.connect(_on_health_changed)
+	EventBus.room_entered.connect(_on_room_entered)
+	EventBus.wave_started.connect(_on_wave_started)
+	EventBus.room_cleared.connect(_on_room_cleared)
 	# Initialize display
 	_update_display(GameState.player_current_health, GameState.player_max_health)
 
 
 func _on_health_changed(current: int, maximum: int) -> void:
 	_update_display(current, maximum)
+
+
+func _on_room_entered(room_data: Resource) -> void:
+	room_label.text = room_data.room_name
+	wave_label.text = ""
+
+
+func _on_wave_started(wave: int, total: int) -> void:
+	wave_label.text = "Wave %d / %d" % [wave, total]
+
+
+func _on_room_cleared(_room: Node2D) -> void:
+	wave_label.text = "Cleared!"
 
 
 func _update_display(current: int, maximum: int) -> void:

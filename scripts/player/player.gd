@@ -35,6 +35,9 @@ var aim_direction: Vector2 = Vector2.RIGHT
 @onready var hurt_timer: Timer = $HurtTimer
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
+# P2: Input control
+var input_disabled: bool = false
+
 
 func _ready() -> void:
 	add_to_group("player")
@@ -53,8 +56,7 @@ func _ready() -> void:
 	attack_area.body_entered.connect(_on_attack_hit)
 	# Init health
 	GameState.reset()
-	# Position player at center of room
-	global_position = _get_room_center()
+	# Position is set by WorldManager, no hardcoded center
 
 
 func _create_placeholder_textures() -> void:
@@ -81,6 +83,8 @@ func _create_placeholder_textures() -> void:
 
 
 func _physics_process(_delta: float) -> void:
+	if input_disabled:
+		return
 	# Calculate aim direction from mouse position
 	var mouse_pos := get_global_mouse_position()
 	aim_direction = (mouse_pos - global_position).normalized()
@@ -105,6 +109,8 @@ func _physics_process(_delta: float) -> void:
 
 
 func _input(event: InputEvent) -> void:
+	if input_disabled:
+		return
 	if event.is_action_pressed("attack"):
 		if can_attack and not is_dashing:
 			_perform_attack()
@@ -200,10 +206,20 @@ func _die() -> void:
 	# Disable collision, input, and attacks
 	collision_shape.set_deferred("disabled", true)
 	attack_area.monitoring = false
+	input_disabled = true
 	set_physics_process(false)
 	set_process_input(false)
 	sprite.modulate = Color(0.3, 0.3, 0.3, 0.6)
 	# Keep the player body and camera in place — do NOT queue_free()
+
+
+func disable_input() -> void:
+	input_disabled = true
+	velocity = Vector2.ZERO
+
+
+func enable_input() -> void:
+	input_disabled = false
 
 
 func _remove_attack_area_from_world() -> void:
@@ -216,8 +232,3 @@ func _remove_attack_area_from_world() -> void:
 func _update_aim_indicator() -> void:
 	if aim_indicator:
 		aim_indicator.global_position = global_position + aim_direction * 30.0
-
-
-func _get_room_center() -> Vector2:
-	# Default center - will be overridden by game manager
-	return Vector2(480, 270)

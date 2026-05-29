@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/enemies/enemy_stats.gd" id="1_stats"]
+
+[resource]
+script = ExtResource("1_stats")
+display_name = "Brute"
+max_health = 60
+move_speed = 60.0
+contact_damage = 20
+experience_value = 15
+color = Color(0.6, 0.1, 0.6, 1)
+size = Vector2(36, 36)

@@ -7,10 +7,18 @@ var player_max_health: int = 100
 var player_current_health: int = 100
 var is_player_alive: bool = true
 
+# P2: Room tracking
+var current_room_name: String = ""
+var rooms_cleared: int = 0
+var total_enemies_killed: int = 0
+
 
 func reset() -> void:
 	player_current_health = player_max_health
 	is_player_alive = true
+	current_room_name = ""
+	rooms_cleared = 0
+	total_enemies_killed = 0
 
 
 func take_damage(amount: int) -> void:
