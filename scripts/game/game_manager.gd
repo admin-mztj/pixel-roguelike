@@ -19,8 +19,8 @@ var game_over: bool = false
 
 @onready var spawn_points: Node2D = $SpawnPoints
 @onready var player_spawn: Marker2D = $PlayerSpawn
-@onready var game_over_label: Label = $GameOverUI/Label
-@onready var game_over_ui: Control = $GameOverUI
+@onready var game_over_label: Label = $"GameOverUI/Overlay/Label"
+@onready var game_over_ui: CanvasLayer = $GameOverUI
 
 # Enemy stats pool for variety
 var enemy_stats_pool: Array = []
