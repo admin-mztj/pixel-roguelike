@@ -1,0 +1,14 @@
+# Godot
+.godot/
+*.translation
+export/
+
+# Imported assets
+.import/
+
+# Claude Code
+.claude/
+
+# OS
+.DS_Store
+Thumbs.db

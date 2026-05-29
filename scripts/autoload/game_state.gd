@@ -1,0 +1,25 @@
+extends Node
+
+## Holds minimal shared mutable state for the current run.
+## P1 scope: player health only.
+
+var player_max_health: int = 100
+var player_current_health: int = 100
+var is_player_alive: bool = true
+
+
+func reset() -> void:
+	player_current_health = player_max_health
+	is_player_alive = true
+
+
+func take_damage(amount: int) -> void:
+	if not is_player_alive:
+		return
+	player_current_health = max(0, player_current_health - amount)
+	EventBus.player_health_changed.emit(player_current_health, player_max_health)
+	EventBus.player_damaged.emit(amount)
+	if player_current_health == 0:
+		is_player_alive = false
+		EventBus.player_died.emit()
+		EventBus.game_over.emit()

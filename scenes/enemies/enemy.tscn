@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/enemies/enemy.gd" id="1_enemy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_14"]
+radius = 14.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_18"]
+radius = 18.0
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 16
+script = ExtResource("1_enemy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_14")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+centered = true
+
+[node name="HealthBar" type="Node2D" parent="."]
+position = Vector2(0, -22)
+
+[node name="Background" type="ColorRect" parent="HealthBar"]
+size = Vector2(32, 4)
+color = Color(0.2, 0.2, 0.2, 1)
+position = Vector2(-16, 0)
+
+[node name="Fill" type="ColorRect" parent="HealthBar"]
+size = Vector2(32, 4)
+color = Color(0, 1, 0, 1)
+position = Vector2(-16, 0)
+
+[node name="AttackArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+shape = SubResource("CircleShape2D_18")
+
+[node name="HurtTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="DeathTimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true

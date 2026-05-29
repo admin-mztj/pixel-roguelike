@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=2 format=3 uid="uid://basicenemy001"]
+
+[ext_resource type="Script" path="res://resources/enemies/enemy_stats.gd" id="1_stats"]
+
+[resource]
+script = ExtResource("1_stats")
+display_name = "Slime"
+max_health = 30
+move_speed = 80.0
+contact_damage = 10
+experience_value = 5
+color = Color(0.9, 0.2, 0.2, 1)
+size = Vector2(28, 28)

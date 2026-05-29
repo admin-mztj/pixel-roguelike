@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=2 format=3 uid="uid://fastenemy001"]
+
+[ext_resource type="Script" path="res://resources/enemies/enemy_stats.gd" id="1_stats"]
+
+[resource]
+script = ExtResource("1_stats")
+display_name = "Wolf"
+max_health = 15
+move_speed = 150.0
+contact_damage = 5
+experience_value = 8
+color = Color(1.0, 0.5, 0.1, 1)
+size = Vector2(24, 24)
