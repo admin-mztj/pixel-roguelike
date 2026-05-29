@@ -12,6 +12,12 @@ var current_room_name: String = ""
 var rooms_cleared: int = 0
 var total_enemies_killed: int = 0
 
+# P3: Biome and map tracking
+var current_biome_index: int = 0
+var current_biome_name: String = ""
+var rooms_cleared_in_biome: int = 0
+var total_biomes: int = 4
+
 
 func reset() -> void:
 	player_current_health = player_max_health
@@ -19,6 +25,9 @@ func reset() -> void:
 	current_room_name = ""
 	rooms_cleared = 0
 	total_enemies_killed = 0
+	current_biome_index = 0
+	current_biome_name = ""
+	rooms_cleared_in_biome = 0
 
 
 func take_damage(amount: int) -> void:

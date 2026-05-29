@@ -1,0 +1,73 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/map_select_ui.gd" id="1_ui"]
+
+[node name="MapSelectUI" type="CanvasLayer"]
+layer = 50
+script = ExtResource("1_ui")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 0.75)
+mouse_filter = 1
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -375.0
+offset_top = -240.0
+offset_right = 375.0
+offset_bottom = 240.0
+
+[node name="TitleLabel" type="Label" parent="Panel"]
+layout_mode = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_top = 8.0
+offset_bottom = 34.0
+text = "Choose Your Path"
+horizontal_alignment = 1
+
+[node name="BiomeLabel" type="Label" parent="Panel"]
+layout_mode = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_top = 36.0
+offset_bottom = 54.0
+text = ""
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+layout_mode = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 60.0
+offset_right = -12.0
+offset_bottom = -36.0
+
+[node name="ColumnsContainer" type="HBoxContainer" parent="Panel/ScrollContainer"]
+layout_mode = 0
+
+[node name="InstructionLabel" type="Label" parent="Panel"]
+layout_mode = 0
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -28.0
+text = "Click a highlighted room to proceed"
+horizontal_alignment = 1

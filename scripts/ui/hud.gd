@@ -7,6 +7,7 @@ extends CanvasLayer
 @onready var health_label: Label = $HealthBar/HealthLabel
 @onready var room_label: Label = $RoomLabel
 @onready var wave_label: Label = $WaveLabel
+@onready var biome_label: Label = $BiomeLabel
 
 
 func _ready() -> void:
@@ -14,6 +15,7 @@ func _ready() -> void:
 	EventBus.room_entered.connect(_on_room_entered)
 	EventBus.wave_started.connect(_on_wave_started)
 	EventBus.room_cleared.connect(_on_room_cleared)
+	EventBus.biome_changed.connect(_on_biome_changed)
 	# Initialize display
 	_update_display(GameState.player_current_health, GameState.player_max_health)
 
@@ -29,6 +31,11 @@ func _on_room_entered(room_data: Resource) -> void:
 
 func _on_wave_started(wave: int, total: int) -> void:
 	wave_label.text = "Wave %d / %d" % [wave, total]
+
+
+func _on_biome_changed(biome_data: Resource) -> void:
+	if biome_data:
+		biome_label.text = biome_data.biome_name
 
 
 func _on_room_cleared(_room: Node2D) -> void:

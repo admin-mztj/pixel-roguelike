@@ -43,6 +43,11 @@ func unlock() -> void:
 	EventBus.door_unlocked.emit(self)
 
 
+func set_connection(room_key: String, entry_dir: String) -> void:
+	connected_room = room_key
+	connected_entry = entry_dir
+
+
 func _on_player_entered(body: Node2D) -> void:
 	if current_state != DoorState.UNLOCKED:
 		return

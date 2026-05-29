@@ -6,10 +6,10 @@
 
 [resource]
 script = ExtResource("1_data")
-room_name = "The Thicket"
+room_name = "Crypt Room 2"
 room_type = 0
-floor_color = Color(0.10, 0.16, 0.12, 1)
-wall_color = Color(0.25, 0.25, 0.30, 1)
+floor_color = Color(0.10, 0.10, 0.12, 1)
+wall_color = Color(0.18, 0.18, 0.22, 1)
 west_door = true
 east_door = true
 wave_enemy_counts = Array[int]([3, 3, 4])

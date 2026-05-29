@@ -18,3 +18,8 @@ signal room_transition_completed(room_node: Node2D)
 signal wave_started(wave_number: int, total_waves: int)
 signal wave_completed(wave_number: int, total_waves: int)
 signal door_unlocked(door_node: Node2D)
+
+# P3: Map and biome signals
+signal map_generated(map_graph: RefCounted)
+signal room_selected_on_map(room_key: String)
+signal biome_changed(biome_data: Resource)

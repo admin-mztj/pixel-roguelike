@@ -1,17 +1,18 @@
-[gd_resource type="Resource" script_class="RoomData" load_steps=3 format=3]
+[gd_resource type="Resource" script_class="RoomData" load_steps=4 format=3]
 
 [ext_resource type="Script" path="res://scripts/room/room_data.gd" id="1_data"]
 [ext_resource type="Resource" path="res://resources/enemies/basic_enemy.tres" id="2_basic"]
+[ext_resource type="Resource" path="res://resources/enemies/fast_enemy.tres" id="3_fast"]
 
 [resource]
 script = ExtResource("1_data")
-room_name = "The Clearing"
+room_name = "Crypt Room 1"
 room_type = 0
-floor_color = Color(0.12, 0.14, 0.18, 1)
-wall_color = Color(0.25, 0.25, 0.30, 1)
-south_door = true
+floor_color = Color(0.10, 0.10, 0.12, 1)
+wall_color = Color(0.18, 0.18, 0.22, 1)
+west_door = true
 east_door = true
 wave_enemy_counts = Array[int]([2, 3])
 wave_delays = Array[float]([0.5, 2.0])
 wave_simultaneous = Array[bool]([false, false])
-enemy_pool = Array[Resource]([ExtResource("2_basic")])
+enemy_pool = Array[Resource]([ExtResource("2_basic"), ExtResource("3_fast")])

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="RoomData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/room/room_data.gd" id="1_data"]
+[ext_resource type="Resource" path="res://resources/enemies/tank_enemy.tres" id="2_tank"]
+
+[resource]
+script = ExtResource("1_data")
+room_name = "Skeleton Lord"
+room_type = 1
+floor_color = Color(0.08, 0.08, 0.10, 1)
+wall_color = Color(0.15, 0.15, 0.20, 1)
+west_door = true
+east_door = true
+wave_enemy_counts = Array[int]([3, 4, 4, 2])
+wave_delays = Array[float]([0.5, 1.5, 2.0, 1.0])
+wave_simultaneous = Array[bool]([false, false, true, false])
+enemy_pool = Array[Resource]([ExtResource("2_tank"), ExtResource("2_tank")])

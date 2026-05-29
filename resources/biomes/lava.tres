@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="BiomeData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/room/biome_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+biome_name = "熔岩洞穴"
+biome_index = 2
+description = "The Volcanic Caves"
+floor_color = Color(0.16, 0.08, 0.04, 1)
+wall_color = Color(0.24, 0.14, 0.08, 1)
+map_tint = Color(0.9, 0.4, 0.1, 1)
+combat_rooms = Array[String](["res://resources/rooms/lava/combat_1.tres", "res://resources/rooms/lava/combat_2.tres", "res://resources/rooms/lava/combat_3.tres"])
+elite_rooms = Array[String](["res://resources/rooms/lava/elite.tres"])
+shop_rooms = Array[String](["res://resources/rooms/auto_clear.tres"])
+sanctum_rooms = Array[String](["res://resources/rooms/auto_clear.tres"])
+rest_rooms = Array[String](["res://resources/rooms/auto_clear.tres"])
+treasure_rooms = Array[String](["res://resources/rooms/auto_clear.tres"])
+event_rooms = Array[String](["res://resources/rooms/auto_clear.tres"])
+boss_room = "res://resources/rooms/lava/boss.tres"
+min_rooms_per_col = 2
+max_rooms_per_col = 3

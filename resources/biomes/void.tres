@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="BiomeData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/room/biome_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+biome_name = "虚空王座"
+biome_index = 3
+description = "The Void Throne"
+floor_color = Color(0.06, 0.04, 0.10, 1)
+wall_color = Color(0.12, 0.08, 0.18, 1)
+map_tint = Color(0.5, 0.2, 0.9, 1)
+combat_rooms = Array[String](["res://resources/rooms/void/combat_1.tres", "res://resources/rooms/void/combat_2.tres", "res://resources/rooms/void/combat_3.tres"])
+elite_rooms = Array[String](["res://resources/rooms/void/elite.tres"])
+shop_rooms = Array[String](["res://resources/rooms/auto_clear.tres"])
+sanctum_rooms = Array[String](["res://resources/rooms/auto_clear.tres"])
+rest_rooms = Array[String](["res://resources/rooms/auto_clear.tres"])
+treasure_rooms = Array[String](["res://resources/rooms/auto_clear.tres"])
+event_rooms = Array[String](["res://resources/rooms/auto_clear.tres"])
+boss_room = "res://resources/rooms/void/boss.tres"
+min_rooms_per_col = 3
+max_rooms_per_col = 3
